@@ -1,16 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "MathFunctions.h"
+#include "sort/SortUtils.h"
 
 int main(int argc, char *argv[])
 {
-    if (argc < 3){
-        printf("Usage: %s base exponent \n", argv[0]);
-        return 1;
-    }
-    double base = atof(argv[1]);
-    int exponent = atoi(argv[2]);
-    double result = power(base, exponent);
-    printf("%g ^ %d is %g\n", base, exponent, result);
+    int size = 10;
+    int* ary = getRandomAry(size);
+    show(ary, size);
     return 0;
 }
