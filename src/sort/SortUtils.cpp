@@ -8,6 +8,7 @@
 #include "SelectSort.h"
 #include "InsertSort.h"
 #include "ShellSort.h"
+#include "QuickSort.h"
 
 void exchange(int* ary, int i, int j)
 {
@@ -65,10 +66,12 @@ void sortRun()
     int* ary = getRandomAry(size);
     show(ary, size);
     printf("--------sort-------- \n");
-    SelectSort s0;
-    InsertSort s1;
-    ShellSort s2;
-    appleySort(s0, ary, size);
-    appleySort(s1, ary, size);
-    appleySort(s2, ary, size);
+    SelectSort sel;
+    InsertSort ins;
+    ShellSort shell;
+    QuickSort quick;
+    appleySort(sel, ary, size);
+    appleySort(ins, ary, size);
+    appleySort(shell, ary, size);
+    appleySort(quick, ary, size);
 }
