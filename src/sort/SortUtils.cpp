@@ -2,9 +2,12 @@
 #include <stdio.h>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
+#include <iterator>
 #include "Sort.h"
 #include "SelectSort.h"
 #include "InsertSort.h"
+#include "ShellSort.h"
 
 void exchange(int* ary, int i, int j)
 {
@@ -40,15 +43,32 @@ int* getRandomAry(int length)
     }
     return ary;
 }
+int* copyAry(int* src, int length)
+{
+    int* ary = new int[length];
+    memcpy(ary, src, length * sizeof(int));
+    return ary;
+}
+
+void appleySort(Sort& s, int* ary,int size)
+{
+    int* cary = copyAry(ary, size);
+    int on = s.sort(cary, size);
+    show(cary, size);
+    printf("%s 's O(n) is %d \n", s.name().c_str() ,on);
+    delete cary;
+}
 
 void sortRun()
 {
-    int size = 20;
+    int size = 50;
     int* ary = getRandomAry(size);
     show(ary, size);
-
-    //SelectSort s;
-    InsertSort s;
-    s.sort(ary, size);
-    show(ary, size);
+    printf("--------sort-------- \n");
+    SelectSort s0;
+    InsertSort s1;
+    ShellSort s2;
+    appleySort(s0, ary, size);
+    appleySort(s1, ary, size);
+    appleySort(s2, ary, size);
 }

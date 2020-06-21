@@ -1,7 +1,8 @@
 #pragma once
 #include "Sort.h"
-class InsertSort : Sort
+class InsertSort : public  Sort
 {
 public:
-	void sort(int* ary,int length);
+	int sort(int* ary,int length);
+    std::string name();
 };
