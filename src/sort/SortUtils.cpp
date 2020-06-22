@@ -9,6 +9,7 @@
 #include "InsertSort.h"
 #include "ShellSort.h"
 #include "QuickSort.h"
+#include "MergeSort.h"
 
 void exchange(int* ary, int i, int j)
 {
@@ -54,9 +55,12 @@ int* copyAry(int* src, int length)
 void appleySort(Sort& s, int* ary,int size)
 {
     int* cary = copyAry(ary, size);
+    clock_t startTime, endTime;
+    startTime = clock();
     int on = s.sort(cary, size);
+    endTime = clock();
     show(cary, size);
-    printf("%s 's O(n) is %d \n", s.name().c_str() ,on);
+    printf("%s 's O(n) is %d ,time is %d\n", s.name().c_str(), on, endTime - startTime);
     delete cary;
 }
 
@@ -70,8 +74,10 @@ void sortRun()
     InsertSort ins;
     ShellSort shell;
     QuickSort quick;
+    MergeSort merge;
     appleySort(sel, ary, size);
     appleySort(ins, ary, size);
     appleySort(shell, ary, size);
     appleySort(quick, ary, size);
+    appleySort(merge, ary, size);
 }
