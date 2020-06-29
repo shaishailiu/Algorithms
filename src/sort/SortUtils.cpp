@@ -59,16 +59,16 @@ void appleySort(Sort& s, int* ary,int size)
     startTime = clock();
     int on = s.sort(cary, size);
     endTime = clock();
-    show(cary, size);
+    //show(cary, size);
     printf("%s 's O(n) is %d ,time is %d\n", s.name().c_str(), on, endTime - startTime);
     delete cary;
 }
 
 void sortRun()
 {
-    int size = 50;
+    int size = 100000;
     int* ary = getRandomAry(size);
-    show(ary, size);
+    //show(ary, size);
     printf("--------sort-------- \n");
     SelectSort sel;
     InsertSort ins;
