@@ -10,6 +10,7 @@
 #include "ShellSort.h"
 #include "QuickSort.h"
 #include "MergeSort.h"
+#include "HeapSort.h"
 
 void exchange(int* ary, int i, int j)
 {
@@ -66,7 +67,7 @@ void appleySort(Sort& s, int* ary,int size)
 
 void sortRun()
 {
-    int size = 100000;
+    int size = 20;
     int* ary = getRandomAry(size);
     //show(ary, size);
     printf("--------sort-------- \n");
@@ -75,9 +76,11 @@ void sortRun()
     ShellSort shell;
     QuickSort quick;
     MergeSort merge;
+    HeapSort heap;
     appleySort(sel, ary, size);
     appleySort(ins, ary, size);
     appleySort(shell, ary, size);
     appleySort(quick, ary, size);
     appleySort(merge, ary, size);
+    appleySort(heap, ary, size);
 }
